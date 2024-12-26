@@ -1,0 +1,25 @@
+// simple mixin
+
+@mixin inline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+// arguments mixin
+
+// membuat function flex
+@mixin flex-box($direction: row, $justify : center) { // nilai default nya row & center
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+}

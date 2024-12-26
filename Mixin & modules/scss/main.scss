@@ -1,0 +1,31 @@
+// mixin seperti function
+// gunakan @mixin "nama" = buat | $include "nama" manggil
+
+
+// modules ini kayak memisahkan setiap mixin atau apapun itu nan kita panggil menggunakan @import(sudah diadaptasi css)
+// manggilnya nama file aja untuk membedakan css dan sass
+// bisa juga memisahkan setiap style selector di file yang berbeda
+// pakai _"namafile" nggk tau sih tapi disaranin karena sass tau itu tidak akan dicompile
+
+
+// kalau pakai use
+
+// 1. kita memelukan dart sass
+// 2. kita mesti buat perintah diterminal untuk menyuruh sass compile file scss/main.scss css/main.css(sass comile file "..." ke "....");
+// 3. btw kekurangan dari @use itu "local scope" jadi kita mesti mamnggil contoh:
+// file container kita perlu gunakan function pada file  _mixin(sesuaikan aja sama tingkatan nya) agar selector nya berjalan(sebelum nya bisa aja tanpa use lagi tapi karena ini tidak global maka mandiri)
+// lakukan juga untuk file lain
+// saat dipanggil kita juga saat mau memasukkan function nya nggk bisa langsung manggil nama funtion nya tapi "namafile"."namafuntion"
+// baru deh setealh di eksekusi setiap selector nya di file baru kita panggil ke main.scss
+// note : jika tidak di gunakan use untuk memanggil function ya error
+
+// cara gampangnya bisa aja habis import "nama","nama",....;
+
+@use "modules/mixin";
+@use "modules/header";
+@use "modules/container";
+@use "modules/footer";
+
+
+
+// memanggil semua style setiap selector

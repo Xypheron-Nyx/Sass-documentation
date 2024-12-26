@@ -1,0 +1,125 @@
+body {
+  min-height: 1000px;
+}
+
+// Seperti If,else,else if,for,while,each
+
+// if
+@mixin profile-picture($size, $circle: false) {
+  width: $size;
+  height: $size;
+  border: 5px solid white;
+  box-shadow: 1px 1px 3px rgba($color: #000000, $alpha: 0.3);
+
+  @if ($circle) {
+    border-radius: 50%;
+  }
+}
+
+.square-profile {
+  @include profile-picture(200px, $circle: false);
+}
+
+.circle-profile {
+  @include profile-picture(80px, $circle: true);
+}
+
+// if & else
+
+$light-bg: #368dad;
+$text-light: #3d383800;
+$dark-bg: #101010;
+$text-dark: #fff;
+
+@mixin light-mode($light-mode: true) {
+  @if $light-mode {
+    background-color: $light-bg;
+    color: $text-light;
+  } @else {
+    background-color: $dark-bg;
+    color: $text-dark;
+  }
+}
+
+h1:hover {
+  & {
+    @include light-mode($light-mode: false);
+  }
+}
+
+// else if
+
+@mixin triangleStyle($size, $color, $direction) {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-color: transparent;
+  border-style: solid;
+  border-width: calc($size / 2);
+  @if $direction == top {
+    border-top-color: $color;
+  } @else if $direction == right {
+    border-right-color: $color;
+  } @else if $direction == bottom {
+    border-bottom-color: $color;
+  } @else {
+    border-left-color: $color;
+  }
+}
+
+.triangle {
+  @include triangleStyle(9em, blue, top);
+}
+
+// for
+
+// .gradient {
+//   margin: 0;
+//   padding: 0;
+//   list-style-type: none;
+//   @for $i from 1 to 11 {
+//     li:nth-child(#{$i}) {
+//       padding: 2px;
+//         background-color: lighten($color, $i *3%); //darken = untuk mempergelap
+//     }
+//   }
+// }
+
+//while
+
+$i: 1;
+$color: blue;
+
+.gradient {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  @while $i < 11 {
+    li:nth-child(#{$i}) {
+      padding: 2px;
+      background-color: lighten($color, $i * 3%); //darken = untuk mempergelap
+    }
+    $i: $i + 1;
+  }
+}
+
+//each
+$soial-colors: (
+  it1: rgba(115, 35, 139, 0.133),
+  it2: rgba(18, 56, 109, 0.533),
+  it3: rgba(5, 109, 104, 0.757),
+  it4: rgba(170, 128, 10, 0.533),
+  it5: rgba(46, 153, 34, 0.533),
+);
+
+.socials {
+  font-size: 2rem;
+  font-family: "Courier New", Courier, monospace;
+  list-style-type: none;
+  font-weight: bold;
+  @each $social, $color in $soial-colors {
+    .#{$social} {
+      color: $color;
+    }
+  }
+}

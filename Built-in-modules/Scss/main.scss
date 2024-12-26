@@ -1,0 +1,75 @@
+$Warna-dasar: #f82992;
+
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 3rem;
+  text-align: center;
+}
+
+// Built-in-Modules : color
+
+// A. adjust Color = ini kayaknya mengotak-atik warna gitu jadi warna yang awalnya "x" bisa aja jadi "y" ,yang aka ditampilkan ya si "y" karena itu hasil dari otak-atik
+
+// contekan :
+// color.adjust($color,
+//   $red: null, $green: null, $blue: null,
+//   $hue: null, $saturation: null, $lightness: null,
+//   $whiteness: null, $blackness: null,
+//   $x: null, $y: null, $z: null,
+//   $chroma: null,
+//   $alpha: null,
+//   $space: null)
+
+// bisa juga di pecah = adjust-hue(warna yg terletak di roda warna),adjust-blackness(mempergelap mungkin)
+// kalau nggk butuh untuk di adjust jangan ditampilin juga ya
+
+// h1 {
+//   color: adjust-color($color: $Warna-dasar, $green: 129, $blue: 233, $red: -255);
+// }
+
+// 1. Adjust-hue = pecahan dari adjust-color
+// h1 {
+//   color: adjust-hue($color: $Warna-dasar, $degrees: -30deg);
+// }
+// katanya kalau nilainya positif dia ketas kalau negatif dia kebawah
+
+// 2. complement($color) = kayanya warna dari arah yg berlawanan
+// h1 {
+//   color: complement($color: $Warna-dasar);
+// }
+
+// 3. Darken = mempergelap / pada roda-warna dia akan semakin keatas dari hue(bukan bergesar)
+// h1 {
+//   color: darken($color: $Warna-dasar, $amount: 30%);
+// }
+
+// 4. Lighten = mempercerah / pada roda warna dia akan semakin ketengah
+// h1 {
+//   color: lighten($color: $Warna-dasar, $amount: 10%);
+// }
+
+// 5. saturate = tingkat kemurnian suatu warna / biasanya warna itu sudah memiliki saturare nya sendiri jadi jika sudah tidak bisa di saturate berarti sudah mentok kecuali pakai desaturate(semakin hilang/tidak murni lagi)
+// h1 {
+// color: saturate($color: $Warna-dasar, $amount: 10%);
+// color: desaturate($color: $Warna-dasar, $amount: 100%);
+// }
+
+// 6. grayscale = mirip kayak desaturate tapi ini tidak bisa dikasih nilai jadi langsung aja
+// h1 {
+//   color: grayscale($color: $Warna-dasar);
+// }
+
+// 7. Mix = menyampurkan warna | mix(color1,color2,weight(bobot perwarna(defaulnya 50%/seimbang) kalau diubah yang berubah itu bobot dari color1)
+// h1 {
+//   color: mix($Warna-dasar, #023a88, 30%); // pakai persen
+// }
+
+// 8. Fade-in = mengatur transparansi / opacity = kalau warna hexa kayaknya nggk bisa karena dia sudah solid jadi nggk bisa diubah kecuali rgba(a nya juga nggk boleh 1 karena ya dia solid juga sama aj dong) = mengatur dari tranparent ke solid
+// h1 {
+//   color: fade-in(rgba(43, 99, 205, 0.5), 0.4); // 0.5 + 0.4 = 0.9
+// }
+
+// 9. Fade-out = dari solid ke trasnperent mungkin pakai hexa bisa
+// h1 {
+//   color: fade-out($color: $Warna-dasar, $amount: 0.9); // semakin gelap
+// }

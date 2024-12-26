@@ -1,0 +1,65 @@
+// Css Variables
+
+// :root{
+//     --primary-color:#8d8a9a;
+//     --secondary-color:#f03f93;
+//     --text-color:#cb3840;
+// }
+
+// body{
+//     background-color: var(--primary-color);
+// }
+
+// h1{
+//     color:var(--text-color)
+// }
+
+// Sass Variable
+
+// variable global scope
+
+//   $primary-color: #ba9384;
+// $secondary-color: #3ff0c195;
+// $text-color: #781262;
+
+//   background-color: $primary-color;
+//   h1 {
+//     color: $primary-color;
+//   }
+// }
+
+// variable local scope
+// $primary-color: #e5d3cc;
+// $secondary-color: #3ff0c195;
+// $text-color: #781262;
+
+// body {
+//   $primary-color: #ba9384;
+//   background-color: $primary-color;
+// }
+
+// h1 {
+//   color: $primary-color; // error
+// }
+
+// cara 1 = masukkan selector ke area local yang ada
+// cara 2 = buat ! setelah var
+
+// map
+
+// $alert-danger : red;
+// $alert-success : green;
+// $alert-warning : orange;
+
+// ribet karena harus memanggil berulang
+
+$alert: (
+  "danger": red,
+  "success": green,
+  "warning": orange,
+);
+
+
+h1{
+    color: map-get($map: $alert, $key: danger );
+}
